@@ -1,0 +1,63 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="pagetitle text-center">
+    <h1 class="text-black">Editar proyecto </h1>
+  </div>
+  
+  <section class="section">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-black">Ingresa los datos del proyecto </h5>
+
+            <form class="row g-3 needs-validation" method="POST" action="/admin/proyecto/update" novalidate>
+
+                <input type="hidden" value="{{proyecto.idProyectoEnergia }}" name="id" />
+                
+                <div class="mb-3">
+                  <label for="nombre" class="form-label text-black">Nombre Proyecto</label>
+                  <input type="text" class="form-control" name="nombre" required value="{{ proyecto.nombre }}">
+                </div>
+                <div class="mb-3">
+                  <label for="tiempoVida" class="form-label text-black">Tiempo Vida Proyecto (anios)</label>
+                  <input type="text" class="form-control" name="tiempoVida" required value="{{ proyecto.tiempoVida }}">
+                </div>
+                <div class="mb-3">
+                  <label for="inversionistas" class="form-label text-black">Inversionistas</label>
+                  <input type="text" class="form-control" name="inversionistas" required value="{{proyecto.inversionistas }}">
+                </div>
+                <div class="mb-3">
+                  <label for="inversion" class="form-label text-black">Inversión Proyecto</label>
+                  <input type="text" class="form-control" name="inversion" required value="{{proyecto.inversion }}">
+                </div>
+                <div class="mb-3">
+                  <label for="tiempoInicioConstruccion" class="form-label text-black">Fecha de Inicio</label>
+                  <input type="text" class="form-control" name="tiempoInicioConstruccion" required value="{{ proyecto.tiempoInicioConstruccion}}">
+                </div>
+                <div class="mb-3">
+                  <label for="tiempoFinConstruccion" class="form-label text-black">Fecha de Fin</label>
+                  <input type="text" class="form-control" name="tiempoFinConstruccion" required value="{{ proyecto.tiempoFinConstruccion}}">
+                </div>
+                <div class="mb-3">
+                  <label for="capacidadGeneracionDiaria" class="form-label text-black">Generacion Diaria en KW</label>
+                  <input type="text" class="form-control" name="capacidadGeneracionDiaria" required value="{{ proyecto.capacidadGeneracionDiaria }}">
+                </div>
+                <div class="mb-3">
+                  <label for="ubicacion" class="form-label text-black">Ubicacion</label>
+                  <input type="text" class="form-control" name="ubicacion" required value="{{ proyecto.ubicacion }}">
+                </div>
+                <button type="submit" class="btn btn-custom btn-primary">Guardar</button>
+                <a href="/admin/proyecto/list" class="btn btn-custom btn-secondary">Cancelar</a>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

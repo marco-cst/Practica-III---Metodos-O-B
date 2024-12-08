@@ -1,0 +1,40 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="pagetitle">
+    <h1>Editar Inversionista </h1>
+  </div>
+  
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-18">
+        <div class="card custom-card">
+          <div class="card-body custom-card-body">
+            <h5 class="card-title">Ingresa los datos del inversionista </h5>
+            <form class="row g-3 needs-validation" method="POST" action="/admin/inversionista/update" novalidate>
+              <input type="hidden" value="{{ inversionista.idInversionista }}" name="id" />
+              <div class="mb-3">
+                <label for="ape" class="form-label">Apellido</label>
+                <input type="text" class="form-control" name="ape" required value="{{inversionista.apellido}}">
+              </div>
+              <div class="mb-3">
+                <label for="nom" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nom" required value="{{inversionista.nombre}}">
+              </div>
+              <div class="mb-3">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="text" class="form-control" name="dni" required value="{{inversionista.dni}}">
+              </div>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+              <a href="/admin/inversionista/list" class="btn btn-custom btn-secondary">Cancelar</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

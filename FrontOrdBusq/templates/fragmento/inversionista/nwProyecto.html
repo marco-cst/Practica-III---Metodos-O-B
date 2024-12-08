@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="container custom-container">
+  <div class="pagetitle text-center">
+    <h1 class="text-black">Agregar inversionista</h1>
+  </div>
+  <h5 class="card-title text-white">Ingresa los datos del inversionista </h5>
+  <form class="row g-3 needs-validation" method="POST" action="/admin/inversionista/save" novalidate>
+    <div class="mb-3">
+      <div class="mb-3">
+        <label for="dni" class="form-label text-black">DNI</label>
+        <input type="text" class="form-control custom-input" name="dni" required>
+      </div>
+      <label for="nom" class="form-label text-black">Nombre</label>
+      <input type="text" class="form-control custom-input" name="nom" required>
+    </div>
+    <div class="mb-3">
+      <label for="ape" class="form-label text-black">Apellido</label>
+      <input type="text" class="form-control custom-input" name="ape" required>
+    </div>
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-custom btn-light">Guardar</button>
+      <a href="/admin/inversionista/list" class="btn btn-custom btn-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

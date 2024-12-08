@@ -1,0 +1,64 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="pagetitle text-center">
+    <h1 class="text-black">Registro de Proyectos </h1>
+  </div>
+  <section class="section">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-white">Ingresa los datos del proyecto </h5>
+
+            <form class="row g-3 needs-validation" method="POST" action="/admin/proyecto/save" novalidate>
+              <div class="mb-3">
+                <label for="nombre" class="form-label text-black">Nombre</label>
+                <input type="text" class="form-control" name="nombre" required>
+              </div>
+              <div class="mb-3">
+                <label for="inversion" class="form-label text-black">Inversion</label>
+                <input type="number" class="form-control" name="inversion" required>
+              </div>
+              <div class="mb-3">
+                <label for="inversionistas" class="form-label text-black">Inversionistas</label>
+                <input type="inversionistas" class="form-control" name="inversionistas" required>
+              </div>
+              <div class="mb-3">
+                <label for="tiempoVida" class="form-label text-black">tiempoVida</label>
+                <input type="number" class="form-control" name="tiempoVida" required>
+              </div>
+              <div class="mb-3">
+                <label for="tiempoInicioConstruccion" class="form-label text-black">Fecha Inicio</label>
+                <input type="text" class="form-control" name="tiempoInicioConstruccion" required>
+              </div>
+              <div class="mb-3">
+                <label for="tiempoFinConstruccion" class="form-label text-black">fecha final </label>
+                <input type="text" class="form-control" name="tiempoFinConstruccion" required>
+              </div>
+              <div class="mb-3">
+                <label for="capacidadGeneracionDiaria" class="form-label text-black">Generacion Diaria</label>
+                <input type="number" class="form-control" name="capacidadGeneracionDiaria" required>
+              </div>
+              <div class="mb-3">
+                <label for="montoInversion" class="form-label text-black">Costo Operativo</label>
+                <input type="number" class="form-control" name="montoInversion" required>
+              </div>
+              <div class="mb-3">
+                <label for="ubicacion" class="form-label text-black">Ubicacion</label>
+                <input type="text" class="form-control" name="ubicacion" required>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-custom btn-light">Guardar</button>
+                <a href="/admin/inversionista/list" class="btn btn-custom btn-secondary">Cancelar</a>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

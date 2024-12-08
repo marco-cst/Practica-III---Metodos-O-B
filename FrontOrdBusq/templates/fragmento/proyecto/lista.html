@@ -1,0 +1,460 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+<!-- Quill.js CSS -->
+<!-- <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet"> -->
+
+<!-- Quill.js JavaScript -->
+<!-- <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script> -->
+
+<script>
+$(document).ready(function () {
+    function actualizarUrlOrden() {         //obtiene los valores de:
+        const criterio = $("#criterio").val(); 
+        const metodo = $("#metodo").val();
+        const orden = $("#orden").val(); 
+        if (criterio && metodo && orden) {
+            const url = `/admin/proyecto/list/${criterio}/${orden}/${metodo}`;
+            $("#ordenar").attr("href", url);
+        } else {
+            console.error("Faltan parámetros para construir la URL.");
+            $("#ordenar").attr("href", "#");
+        }
+    }
+    $("#criterio, #metodo, #orden").change(function () {
+        actualizarUrlOrden();
+    });
+    actualizarUrlOrden();
+});
+
+</script>
+
+<div class="col-12">
+
+    <div style="display: flex; align-items: center; gap: 15px; padding: 10px; background-color: #000000;">
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTg1ZWd6bHQ5ZzJiaWd2eHNobTF1ajF4Z3B6dThydmkwNTRpZjd1aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GLgPVZ5PLMOPe/giphy.gif" 
+             alt="Energía" 
+             style="width: 100px; height: 100px; border-radius: 50%;">
+        <h1 style="color: #FF5252; font-size: 32px; margin: 0;">Proyectos Energeticos</h1>
+    </div>
+
+    <div style="margin-bottom: 20px; width: 90%; background-color: rgba(30, 30, 30, 0.5); padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px; margin-right: 20px;">
+            <h3 style="color: #ff5252; text-align: left; margin-bottom: 20px; font-family: Arial, sans-serif;">Metodos de Ordenacion</h3>
+    
+            <div style="margin-bottom: 15px;">
+                <label for="criterio" style="display: block; color: #fff; font-weight: bold; margin-bottom: 5px;">Seleccione el criterio:</label>
+                <select id="criterio" class="styled-select">
+                    <option value="nombre">Ordenar por Nombre</option>
+                    <option value="inversionistas">Ordenar por Inversionistas</option>
+                </select>
+            </div>
+    
+            <div style="margin-bottom: 15px;">
+                <label for="metodo" style="display: block; color: #fff; font-weight: bold; margin-bottom: 5px;">Seleccione el método de ordenación:</label>
+                <select id="metodo" class="styled-select">
+                    <option value="quick">Quick Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="shell">Shell Sort</option>
+                </select>
+            </div>
+    
+            <div style="margin-bottom: 15px;">
+                <label for="orden" style="display: block; color: #fff; font-weight: bold; margin-bottom: 5px;">Seleccione la dirección:</label>
+                <select id="orden" class="styled-select">
+                    <option value="0">Ascendente</option>
+                    <option value="1">Descendente</option>
+                </select>
+            </div>
+    
+            <a id="ordenar" href="#" class="btn-ordenar">Ordenar</a>
+        </div>
+    
+        <div style="flex: 1; min-width: 300px;">
+            <h3 style="color: #ff5252; text-align: left; margin-bottom: 20px; font-family: Arial, sans-serif;">Busqueda</h3>
+    
+            <div style="margin-bottom: 15px;">
+                <label for="categoria" style="display: block; color: #fff; font-weight: bold; margin-bottom: 5px;">Seleccione el criterio de búsqueda:</label>
+                <select id="categoria" class="styled-select">
+                    <option value="nombre">Nombre de proyecto</option>
+                    <option value="inversionistas">Inversionistas</option>
+                </select>
+            </div>
+    
+            <div style="margin-bottom: 15px;">
+                <label for="texto" style="display: block; color: #fff; font-weight: bold; margin-bottom: 5px;">Ingrese el texto:</label>
+                <input type="text" id="texto" class="styled-input" placeholder="Ingrese un término..." />
+            </div>
+    
+            <button id="buscar" class="btn-ordenar">Buscar</button>
+        </div>
+    </div>
+
+    </div>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre proyecto</th>
+                <th>Inversionistas</th>
+                <th>Inversión</th>
+                <th>Fecha Inicio Contrucción</th>
+                <th>Fecha Fin Construcción</th>
+                <th>Tiempo Vida (años)</th>
+                <th>Capacidad generación Diaria KW</th>
+                <th>Ubicación proyecto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if list %}
+                {% for item in list %}
+                <tr id="row-{{ item.idProyectoEnergia }}">
+                    <td>{{ item.idProyectoEnergia }}</td>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.inversionistas }}</td>
+                    <td>{{ item.inversion }}</td>
+                    <td>{{ item.tiempoInicioConstruccion}}</td>
+                    <td>{{ item.tiempoFinConstruccion}}</td>
+                    <td>{{ item.tiempoVida }}</td>
+                    <td>{{ item.capacidadGeneracionDiaria}}</td>
+                    <td>{{ item.ubicacion }}</td>
+                    <td>
+                        <a href="/admin/proyecto/edit/{{item.idProyectoEnergia}}">Editar</a>
+                        <button class="btn-custom" onclick="deleteRow('{{item.id}}')">Eliminar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="9">No existe</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<style>
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-family: Arial, sans-serif;
+        background-color: #2b2b2b;
+        color: #fff;
+    }
+    
+    .styled-table thead {
+        background-color: #121212;
+    }
+    
+    .styled-table th {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 2px solid #ff5252;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    
+    .styled-table tbody tr {
+        border-bottom: 1px solid #444;
+    }
+    
+    .styled-table td {
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+    }
+    
+    .styled-table tbody tr:hover {
+        background-color: #333;
+    }
+    
+    .styled-table .btn-custom {
+        background-color: #ff5252;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .styled-table .btn-custom:hover {
+        background-color: #ff7979;
+    }
+    
+    .styled-table th:nth-child(1), 
+    .styled-table td:nth-child(1) { width: 5%; }
+    .styled-table th:nth-child(2), 
+    .styled-table td:nth-child(2) { width: 15%; }
+    .styled-table th:nth-child(3), 
+    .styled-table td:nth-child(3) { width: 15%; }
+    .styled-table th:nth-child(4), 
+    .styled-table td:nth-child(4) { width: 10%; }
+    .styled-table th:nth-child(5), 
+    .styled-table td:nth-child(5) { width: 15%; }
+    .styled-table th:nth-child(6), 
+    .styled-table td:nth-child(6) { width: 15%; }
+    .styled-table th:nth-child(7), 
+    .styled-table td:nth-child(7) { width: 10%; }
+    .styled-table th:nth-child(8), 
+    .styled-table td:nth-child(8) { width: 15%; }
+    .styled-table th:nth-child(9), 
+    .styled-table td:nth-child(9) { width: 15%; }
+
+    .styled-table thead tr {
+        background-color: #1B1B1B;
+        color: #FF5252;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+        border: 1px solid #D32F2F;
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid #D32F2F;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #1E1E1E;
+    }
+
+    .styled-table tbody tr:nth-of-type(odd) {
+        background-color: #262626;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #D32F2F;
+    }
+
+    .styled-table tbody tr:hover {
+        background-color: #333333;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .btn-edit {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+
+    .btn-delete {
+        background-color: #F44336;
+        color: #fff;
+    }
+
+    .btn:hover {
+        opacity: 0.8;
+    }
+
+    .styled-table {
+        animation: glow 2s infinite alternate;
+    }
+    
+    @keyframes glow {
+        from {
+            box-shadow: 0 0 10px #D32F2F, 0 0 20px #FF5252;
+        }
+        to {
+            box-shadow: 0 0 20px #FF5252, 0 0 40px #FF8A80;
+        }
+    }
+
+    body {
+        background: url('https://img.freepik.com/foto-gratis/espacio-galaxia-azul-marino-uso-asi-como-astronomia-backgrou_1258-106.jpg?t=st=1733601366~exp=1733604966~hmac=70a515ba4f379f8289d59575e75e3e0bdc6aba796479d32444f207e9c7bc3681&w=1380') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+    }
+    
+    .styled-table td:hover {
+        background-color: #FF5252;
+        color: #121212;
+        transition: 0.3s;
+    }
+
+    .btn-ordenar {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #121212;
+        border: 2px solid #ff5252;
+        border-radius: 8px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .styled-select {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+        border: 2px solid #ff5252;
+        border-radius: 8px;
+        background-color: #2b2b2b;
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        appearance: none;
+        outline: none;
+        cursor: pointer;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .styled-select:hover {
+        border-color: #ff7979;
+        box-shadow: 0 0 10px #ff5252;
+    }
+    
+    .styled-select:focus {
+        border-color: #ff5252;
+        box-shadow: 0 0 15px #ff5252;
+    }
+    
+    .styled-input {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+        border: 2px solid #ff5252;
+        border-radius: 8px;
+        background-color: #2b2b2b;
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .styled-input:hover {
+        border-color: #ff7979;
+        box-shadow: 0 0 10px #ff5252;
+    }
+    
+    .styled-input:focus {
+        border-color: #ff5252;
+        box-shadow: 0 0 15px #ff5252;
+    }
+    
+    .btn-ordenar {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #121212;
+        border: 2px solid #ff5252;
+        border-radius: 8px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .btn-ordenar:hover {
+        color: #121212;
+        background-color: #ff5252;
+    }
+    
+    .btn-ordenar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        box-shadow: 0 0 15px #ff5252, 0 0 30px #ff5252, 0 0 45px #ff5252;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .btn-ordenar:hover::before {
+        opacity: 1;
+    }
+    
+    .btn-ordenar::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200%;
+        height: 200%;
+        background: rgba(255, 82, 82, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+        }
+    }
+</style>
+
+<script>
+    function deleteRow(id) {
+        const row = document.getElementById(`row-${id}`);
+        if (confirm("Deseas eliminar el proyecto?")) {
+            row.remove(); 
+        }
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        function url_change() {
+            var texto = $("#texto").val(); 
+            var categoria = $("#categoria").val();
+            if (texto) {
+                var url = `/admin/proyecto/list/search/${categoria}/${texto}`;
+                $("#btn").attr("href", url); 
+            }
+        }
+
+        $("#texto").keyup(function () {
+            url_change(); 
+        });
+
+        $("#categoria").change(function () {
+            url_change(); 
+        });
+
+        $("#buscar").click(function (e) {
+            e.preventDefault();
+            var texto = $("#texto").val();
+            if (!texto) {
+                alert("Por favor ingrese un texto para buscar");
+                return;
+            }
+            window.location.href = `/admin/proyecto/list/search/${$("#categoria").val()}/${texto}`;
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+
+{% block content %}
+
+<body>
+    <h1>Historial</h1>
+    <div class="table-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Operación</th>
+                    <th>Entidad</th>
+                    <th>Detalle</th>
+                    <th>Fecha y Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in historial %}
+                <tr>
+                    <td>{{ registro.operacion }}</td>
+                    <td>{{ registro.tipo }}</td> 
+                    <td>{{ registro.mensaje }}</td> 
+                    <td>{{ registro.fecha }}</td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+{% endblock %}
