@@ -1,0 +1,110 @@
+[
+    {
+        "fecha": "2024-12-04 01:44:39",
+        "mensaje": "Inversionista Edwar  Flor creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 01:50:37",
+        "mensaje": "Inversionista Simon Boler creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 03:46:33",
+        "mensaje": "Inversionista Eduardo Fill creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 03:49:14",
+        "mensaje": "Inversionista Edison Poma actualizado",
+        "operacion": "actualizar",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 04:32:51",
+        "mensaje": "Inversionista Arnold Land creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 12:01:04",
+        "mensaje": "Inversionista Jeison Vivanco creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 14:17:27",
+        "mensaje": "Inversionista Edison Pomas actualizado",
+        "operacion": "actualizar",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 15:04:22",
+        "mensaje": "Inversionista Edison Poma actualizado",
+        "operacion": "actualizar",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 15:07:22",
+        "mensaje": "Inversionista Mateo Abad creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-04 21:52:47",
+        "mensaje": "Inversionista Edison Pomas actualizado",
+        "operacion": "actualizar",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-05 21:10:24",
+        "mensaje": "Inversionista Jeison Pomas creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-05 21:10:55",
+        "mensaje": "Inversionista Martin Sanz actualizado",
+        "operacion": "actualizar",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-06 07:48:09",
+        "mensaje": "Inversionista Ander zander creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-06 07:58:43",
+        "mensaje": "Inversionista Edison Pomaz actualizado",
+        "operacion": "actualizar",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-06 08:01:38",
+        "mensaje": "Inversionista Jonson Cueva creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-07 17:50:23",
+        "mensaje": "Inversionista Edison Pomas actualizado",
+        "operacion": "actualizar",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-07 17:50:28",
+        "mensaje": "Inversionista   creado",
+        "operacion": "crear",
+        "tipo": "inversionista"
+    },
+    {
+        "fecha": "2024-12-07 17:50:49",
+        "mensaje": "Inversionista Kennedy Velez actualizado",
+        "operacion": "actualizar",
+        "tipo": "inversionista"
+    }
+]
