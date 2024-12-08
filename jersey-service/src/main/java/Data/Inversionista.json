@@ -1,0 +1,167 @@
+[
+    {
+        "idInversionista": 1,
+        "nombre": "Edison",
+        "apellido": "Pomas",
+        "DNI": "1104072101",
+        "montoInvertido": 1500.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 2,
+        "nombre": "Anderson",
+        "apellido": "zans",
+        "DNI": "1235432",
+        "montoInvertido": 1200.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 3,
+        "nombre": "Juan Perez",
+        "apellido": "Gomez",
+        "DNI": "12345678",
+        "montoInvertido": 2000.56,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 4,
+        "nombre": "Maria Lopez",
+        "apellido": "Martinez",
+        "DNI": "87654321",
+        "montoInvertido": 9000.56,
+        "tipoInversionista": "publico"
+    },
+    {
+        "idInversionista": 5,
+        "nombre": "Edwar",
+        "apellido": "Flor",
+        "DNI": "123125342",
+        "montoInvertido": 1800.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 6,
+        "nombre": "Simon",
+        "apellido": "Boler",
+        "DNI": "452323",
+        "montoInvertido": 1700.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 7,
+        "nombre": "Eduardo",
+        "apellido": "Fill",
+        "DNI": "074325434",
+        "montoInvertido": 1600.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 8,
+        "nombre": "Arnold",
+        "apellido": "Land",
+        "DNI": "5634534",
+        "montoInvertido": 1400.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 9,
+        "nombre": "Laura",
+        "apellido": "Smith",
+        "DNI": "987654321",
+        "montoInvertido": 5000.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 10,
+        "nombre": "Carlos",
+        "apellido": "Johnson",
+        "DNI": "876543210",
+        "montoInvertido": 7500.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 11,
+        "nombre": "Patricia",
+        "apellido": "Williams",
+        "DNI": "765432109",
+        "montoInvertido": 3000.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 12,
+        "nombre": "Michael",
+        "apellido": "Brown",
+        "DNI": "654321098",
+        "montoInvertido": 10000.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 13,
+        "nombre": "Linda",
+        "apellido": "Jones",
+        "DNI": "543210987",
+        "montoInvertido": 4500.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 14,
+        "nombre": "Robert",
+        "apellido": "Garcia",
+        "DNI": "432109876",
+        "montoInvertido": 6000.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 15,
+        "nombre": "Ximena",
+        "apellido": "Lopez",
+        "DNI": "43214236",
+        "montoInvertido": 6000.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 16,
+        "nombre": "Jeison",
+        "apellido": "Vivanco",
+        "DNI": "78834234",
+        "montoInvertido": 1900.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 17,
+        "nombre": "Mateo",
+        "apellido": "Abad",
+        "DNI": "95435432",
+        "montoInvertido": 1100.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 18,
+        "nombre": "Martin",
+        "apellido": "Sanz",
+        "DNI": "12314423",
+        "montoInvertido": 1000.0,
+        "tipoInversionista": "privado"
+    },
+    {
+        "idInversionista": 19,
+        "nombre": "Ander",
+        "apellido": "zander",
+        "DNI": "0743241",
+        "montoInvertido": 0.0
+    },
+    {
+        "idInversionista": 20,
+        "nombre": "Jonson",
+        "apellido": "Cueva",
+        "DNI": "543534534",
+        "montoInvertido": 0.0
+    },
+    {
+        "idInversionista": 21,
+        "nombre": "Kennedy",
+        "apellido": "Velez",
+        "DNI": "6546354",
+        "montoInvertido": 0.0
+    }
+]
